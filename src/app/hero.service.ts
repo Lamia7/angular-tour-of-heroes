@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Hero } from './models/hero';
 import { HEROES } from './mock-heroes';
@@ -9,8 +10,8 @@ import { HEROES } from './mock-heroes';
 export class HeroService {
   constructor() {}
 
-  // ajout méthode qui renvoie les héros (ici du mock mais pourrait être d'une API)
-  getHeroes(): Hero[] {
-    return HEROES;
+  // méthode qui renvoie les héros ici via un observable de la classe Hero qui est un tableau
+  getHeroes(): Observable<Hero[]> {
+    return of(HEROES); // of(HEROES)renvoie un Observable<Hero[]>qui émet une valeur unique: le tableau des héros fictifs
   }
 }
