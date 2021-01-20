@@ -1,3 +1,10 @@
 <h1>{{ title }}</h1>
-<app-heroes></app-heroes>
+
+<!-- navigation vers component hero via directive RouterLinke-->
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<!-- indique au routeur où afficher les vues routées -->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
+<!-- composant messages -->
