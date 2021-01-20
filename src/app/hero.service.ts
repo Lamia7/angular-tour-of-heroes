@@ -17,4 +17,11 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes'); // message lorsque les héros sont récupérés
     return of(HEROES); // of(HEROES)renvoie un Observable<Hero[]>qui émet une valeur unique: le tableau des héros fictifs
   }
+
+  // méthode qui renvoie un héro en fonction de l'ID
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find((hero) => hero.id === id));
+  }
 }
