@@ -23,10 +23,9 @@ export class HeroService {
     this.messageService.add(`HeroService: ${message}`);
   }
 
-  // méthode qui renvoie les héros ici via un observable de la classe Hero qui est un tableau
+  /** GET heroes depuis le server */
   getHeroes(): Observable<Hero[]> {
-    this.messageService.add('HeroService: fetched heroes'); // message lorsque les héros sont récupérés
-    return of(HEROES); // of(HEROES)renvoie un Observable<Hero[]>qui émet une valeur unique: le tableau des héros fictifs
+    return this.http.get<Hero[]>(this.heroesUrl); // renvoie un observable de tableaux hero
   }
 
   // méthode qui renvoie un héro en fonction de l'ID
